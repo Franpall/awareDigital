@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Styles/general.css">
+    <title>Inicio</title>
+</head>
+<body>
+    <header>
+        <div id="botonMenu">
+            <div class="hamburger" onclick="abrirMenu()">
+                <input class="checkbox" type="checkbox" />
+                <svg fill="none" viewBox="0 0 50 50" height="50" width="50">
+                  <path
+                    class="lineTop line"
+                    stroke-linecap="round"
+                    stroke-width="4"
+                    stroke="black"
+                    d="M6 11L44 11"
+                  ></path>
+                  <path
+                    stroke-linecap="round"
+                    stroke-width="4"
+                    stroke="black"
+                    d="M6 24H43"
+                    class="lineMid line"
+                  ></path>
+                  <path
+                    stroke-linecap="round"
+                    stroke-width="4"
+                    stroke="black"
+                    d="M6 37H43"
+                    class="lineBottom line"
+                  ></path>
+                </svg>
+              </div>
+        </div>
+        <div>
+            <h1>Franpal <b class="onCuadro">To Learn</b></h1>
+        </div>
+    </header>
+    <main>
+        <section class="tarjetas">
+            <article class="tarjeta">
+                <h2>Python</h2>
+                <div>
+
+                </div>
+            </article>
+            <article class="tarjeta">
+                <h2>Desarrollo Web</h2>
+                <div>
+
+                </div>
+            </article>
+            <article class="tarjeta">
+                <h2>Bases de Datos</h2>
+                <div>
+
+                </div>
+            </article>
+        </section>
+        <aside id="barraLateral" class="oculto">
+            <div class="carpeta">
+                <a>Python</a>
+            </div>
+            <div class="carpeta">
+                <a>Desarrollo Web</a>
+            </div>
+            <div class="carpeta">
+                <a>Bases de Datos</a>
+            </div>
+            <div class="carpeta">
+                <a>Git</a>
+            </div>
+        </aside>
+    </main>
+    <footer>
+        <p>Copyright &copy; 2024- Franpal</p>
+    </footer>
+    <script src="Scripts/burgermenu.js"></script>
+</body>
+</html>
