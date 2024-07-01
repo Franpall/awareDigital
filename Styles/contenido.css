@@ -1,0 +1,32 @@
+@import url(Styles/general.css);
+
+.contenido{
+    background-color: var(--tarjeta);
+    box-shadow: 2px 2px 5px black;
+    width: 80%;
+    max-width: 800px;
+    border-radius: 20px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.tituloTutorial{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tituloTutorial img{
+    width: 50px;
+    aspect-ratio: 1/1;
+}
+
+.articulo{
+    background-color: var(--tarjeta);
+    box-shadow: 2px 2px 5px black;
+    width: 90%;
+    max-width: 800px;
+    border-radius: 10px;
+    margin: 20px auto;
+    padding: 20px; 
+}
