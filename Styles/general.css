@@ -5,13 +5,24 @@
     margin: 0;
 }
 
+:root{
+  --texto: #000000;
+  --fondo: #ffffff;
+  --tarjeta: #cef0fd;
+  --acento: #2548a8;
+  --barraLateral: #111622;
+  --boton:#243e68;
+  --botonSeleccionado:#122d77;
+  --botonUbicacion:#1642bd;
+}
+
 /* Estilos adaptables */
 header{
   display: flex;
   justify-content: center;
   align-items: center;
   height: 70px;
-  background-color: rgb(11, 77, 134);
+  background-color: var(--acento);
 }
 
 h1{
@@ -39,13 +50,65 @@ aside{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: rgba(2, 22, 29, 0.945);
-  animation: aparecer 500ms 1 ease-in-out;
+  flex-wrap: wrap;
+  background: var(--barraLateral);
+  animation: aparecer 500ms 1 linear;
   color: white;
+  gap: 10px;
+}
+
+.carpeta{
+  background-color: var(--boton);
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  width: 80%;
+  padding: 10px 5px;
+  border-radius: 10px;
+  gap: 10px;
+  font-weight: 500;
+}
+
+.carpeta:hover{
+  background-color: var(--botonSeleccionado);
+  cursor: pointer;
+}
+
+.carpeta img{
+  margin-left: 5px;
+  width: 40px;
+  aspect-ratio: 1/1;
+}
+
+/* tarjetas */
+
+.tarjetas{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tarjeta{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  background-color: var(--tarjeta);
+  margin: 10px;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.tarjeta_img{
+  width: 280px;
+  aspect-ratio: 1/1;
 }
 
 /* Método First Mobile */
-@media(max-width:800px){
+@media(max-width:900px){
 
 #botonMenu{
     position: fixed;
@@ -78,30 +141,35 @@ aside{
 
 /* siguiente pantalla  */
 
-@media(min-width:800px){
+@media(min-width:900px){
 
 main{
   width: 100%;
   display: flex;
-  align-items: center;
+  align-items: start;
   justify-content: center;
+  background-color: var(--fondo);
 }
 
 #barraLateral{
-  height: calc(100vh - 70px);
+  position: sticky;
+  top: 0;
+  left: 0;
+  height: 100vh;
   width: 30%;
   max-width: 400px;
-}
-
-section{
-  width: 70%;
-  background-color: rgb(106, 168, 48);
 }
 
 #botonMenu{
   display: none;
 }
 }
+
+
+
+
+
+
 
 /* elementos externos  */
 
