@@ -5,20 +5,24 @@ const count = ref(0)
 </script>
 
 <template>
-  <header>
-    <h1>Aware Digital</h1>
-  </header>
+    <section>
+        <h2>Participa Gratis por Múltiples Premios</h2>
+        <article>
+        </article>
+    </section>
 </template>
 
 <style scoped>
-header{
+section{
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 70px;
-  background-color: #0e4da0;
+  min-height: calc(100vh - 70px);
   font-family: 'Jost', 'serif';
-  font-size: 15px;
+}
+
+h2{
+    font-size: 1.5em;
 }
 </style>
