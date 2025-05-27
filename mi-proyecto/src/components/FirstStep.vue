@@ -16,6 +16,11 @@ let premios = [
         nombre: "TV Samsung 43''",
         descripcion: "Televisor Samsung 43 pulgadas",
         imagen: "https://images.samsung.com/is/image/samsung/p6pim/in/ua43t5450akxxl/gallery/in-fhd-t5310-428860-ua43t5450akxxl-532972981?$650_519_PNG$"
+    },
+    {
+        nombre: "Iphone 14",
+        descripcion: "Apple Iphone 14",
+        imagen: "https://th.bing.com/th/id/R.7ed9c7507092d9fb0d9b7bcb5ca64f74?rik=IiriInCrfbutjw&pid=ImgRaw&r=0"
     }
 ];
 
@@ -23,6 +28,7 @@ let selectedGift = ref(null);
 let box = ref(null);
 let step = ref(1)
 let progress = ref(0); 
+const pathValue = window.location.pathname.split('/').filter(Boolean).pop();
 
 function selectGift(index) {
     if (selectedGift.value === null) {
@@ -36,13 +42,17 @@ function nextStep(){
 }
 
 function share(){
+    if (progress.value >= 80) {
+        nextStep();
+        return;
+    }
     progress.value += 20;
 }
 </script>
 
 <template>
     <section>
-        <article v-if="step == 1">
+        <article v-if="step == 1 && !pathValue">
             <h2>Participa Gratis por Múltiples Premios</h2>
             <p>Selecciona 1 de las cajas sorpresa</p>
             <div class="boxes">
@@ -61,19 +71,52 @@ function share(){
                 </button>
             </div>
         </article>
-        <article v-if="step == 2">
+        <article v-if="step == 2 && !pathValue">
             <div class="gratula_card">
                 <img :src="premios[selectedGift].imagen" alt="gift" class="gift_image">
                 <p>Felicidades por tu {{ premios[selectedGift].nombre }} 🎉🎈🥂</p>
             </div>
             <h2>Paso 1</h2>
-            <p>Comparte el enlace con tus conocidos en WhatsApp</p>
+            <p>Comparte el enlace con tus conocidos en WhatsApp para que participen</p>
             <div class="share_card">
                 <div class="progress_bar">
                     <div class="progress" :style="{ width: progress + '%' }"></div>
                 </div>
-                <p>https://franpaldev.netlify.app/</p>
-                <a @click="share()">Compartir</a>
+                <p>https://awaredigital.netlify.app/</p>
+                <a @click="share()" href="https://api.whatsapp.com/send?text=Participa%20por%20premios%20gratis%20https://awaredigital.netlify.app" target="_blank">Compartir</a>
+            </div>
+        </article>
+        <article v-if="step == 3 && !pathValue">
+            <div class="gratula_card">
+                <img :src="premios[selectedGift].imagen" alt="gift" class="gift_image">
+                <p>Felicidades por tu {{ premios[selectedGift].nombre }} 🎉🎈🥂</p>
+            </div>
+            <h2>Paso 2</h2>
+            <p>Comprueba que no eres un robot, entra al enlace, espera 10 segundos y haz click en "continuar"</p>
+            <div class="share_card">
+                <a @click="nextStep()" href="https://exe.io/awaredigital" target="_blank">🧑 No Soy Un Robot</a>
+            </div>
+        </article>
+        <article v-if="step == 4 && !pathValue">
+            <div class="gratula_card">
+                <img :src="premios[selectedGift].imagen" alt="gift" class="gift_image">
+                <p>Felicidades por tu {{ premios[selectedGift].nombre }} 🎉🎈🥂</p>
+            </div>
+            <h2>Inténtalo de nuevo</h2>
+            <p>para reclamar tu premio debes esperar los segundos que se indican y luego hacer click en "continuar"</p>
+            <div class="share_card">
+                <a href="https://exe.io/awaredigital" target="_blank">🧑 No Soy Un Robot</a>
+            </div>
+        </article>
+        <article v-if="pathValue">
+            <div class="warning_card">
+                <p>Así no funciona la vida, abre los ojos! 👀👀</p>
+            </div>
+            <h2>Más cuidado la Próxima!!</h2>
+            <p>No te creas todo lo que ves en internet, nadie te regala nada gratis, nunca ingreses datos personales en ningún anuncio como este!</p>
+            <p>No te dejes engañar, tuviste suerte de que esto fue un programa de concientización social y no una estafa o <a href="https://es.wikipedia.org/wiki/Phishing">Phishing</a></p>
+            <div class="share_card">
+                <a href="https://api.whatsapp.com/send?text=Participa%20por%20premios%20gratis%20https://awaredigital.netlify.app/1" target="_blank">Compartir la Reflexión</a>
             </div>
         </article>
     </section>
@@ -101,6 +144,8 @@ article{
     width: 100%;
     height: 100%;
     flex-direction: column;
+    transition: all 0.9s ease-in-out;
+    animation: fade-in-right-normal 1s ease 0s 1 normal none; 
 }
 
 /* Estilos de las cajas de premios */
@@ -133,15 +178,17 @@ article{
     width: 100%;
     aspect-ratio: 1/1;
     object-fit: contain;
+    animation: scale-up-center-normal 2s ease 0s 1 normal none; 
 }
 
 .claim_button{
     position: absolute;
     top: 50%;
+    animation: fade-in-right-normal 1s ease 0s 1 normal none; 
 }
 
 .gratula_card{
-    width: 100%;
+    width: 92%;
     max-width: 450px;
     display: flex;
     justify-content: center;
@@ -156,11 +203,25 @@ article{
     width: 80px;
 }
 
+.warning_card{
+    width: 92%;
+    max-width: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90px;
+    border-radius: 15px;
+    background-color: #c04f03;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
 .share_card{
     border-radius: 20px;
     background-color: black;
     padding: 30px 20px;
-    width: 90%;
+    box-sizing: border-box;
+    width: 92%;
     max-width: 400px;
     display: flex;
     align-items: center;
@@ -207,4 +268,18 @@ article{
         flex-direction: column;
     }
 }
+
+/* ----------------------------------------------
+* Generated by Gradienty on 2025-05-27 01:00
+* animation scale-up-center-normal
+* ----------------------------------------
+*/
+@keyframes scale-up-center-normal {0% { transform: scale(0); opacity: 0;} 20% { transform: scale(0); display: none; opacity: 0.7;} 80% { transform: scale(0.5); opacity: 0.8; } 100% { transform: scale(1); opacity: 1;} }
+
+/* ----------------------------------------------
+* Generated by Gradienty on 2025-05-26 23:17
+* animation fade-in-right-normal
+* ----------------------------------------
+*/
+@keyframes fade-in-right-normal {0% { transform: translateX(50px); opacity: 0; } 100% { transform: translateX(0); opacity: 1;} }
 </style>

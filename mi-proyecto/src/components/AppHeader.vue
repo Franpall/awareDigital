@@ -20,5 +20,6 @@ header{
   background-color: #0e4da0;
   font-family: 'Jost', 'serif';
   font-size: 15px;
+  overflow: hidden;
 }
 </style>
