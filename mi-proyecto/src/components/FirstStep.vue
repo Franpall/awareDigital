@@ -18,9 +18,9 @@ let premios = [
         imagen: "https://images.samsung.com/is/image/samsung/p6pim/in/ua43t5450akxxl/gallery/in-fhd-t5310-428860-ua43t5450akxxl-532972981?$650_519_PNG$"
     },
     {
-        nombre: "Iphone 14",
-        descripcion: "Apple Iphone 14",
-        imagen: "https://th.bing.com/th/id/R.7ed9c7507092d9fb0d9b7bcb5ca64f74?rik=IiriInCrfbutjw&pid=ImgRaw&r=0"
+        nombre: "Iphone 15",
+        descripcion: "Apple Iphone 15",
+        imagen: "https://www.ais.th/content/dam/ais/consumer/store/devices/apple/iphone/iphone-15-series/iphone-15-pro/iphone-15-pro-natural-titanium.png"
     }
 ];
 
@@ -94,7 +94,7 @@ function share(){
             <h2>Paso 2</h2>
             <p>Comprueba que no eres un robot, entra al enlace, espera 10 segundos y haz click en "continuar"</p>
             <div class="share_card">
-                <a @click="nextStep()" href="https://exe.io/awaredigital" target="_blank">🧑 No Soy Un Robot</a>
+                <a @click="nextStep()" href="https://ouo.io/4ujm4a" target="_blank">🧑 No Soy Un Robot</a>
             </div>
         </article>
         <article v-if="step == 4 && !pathValue">
@@ -105,7 +105,7 @@ function share(){
             <h2>Inténtalo de nuevo</h2>
             <p>para reclamar tu premio debes esperar los segundos que se indican y luego hacer click en "continuar"</p>
             <div class="share_card">
-                <a href="https://exe.io/awaredigital" target="_blank">🧑 No Soy Un Robot</a>
+                <a href="https://ouo.io/4ujm4a" target="_blank">🧑 No Soy Un Robot</a>
             </div>
         </article>
         <article v-if="pathValue">
